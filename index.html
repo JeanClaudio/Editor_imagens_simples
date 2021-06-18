@@ -145,6 +145,11 @@ window.document.getElementById("Blur").addEventListener("click", function(){
 
 });
 
+window.document.getElementById("Brightness").addEventListener("click", function(){
+    document.getElementById("container-img").style.filter = "brightness(150%)";
+
+});
+
 window.document.getElementById("Contrast").addEventListener("click", function(){
     document.getElementById("container-img").style.filter = "contrast(180%)";
 });
@@ -163,6 +168,10 @@ window.document.getElementById("Hue-rotate").addEventListener("click", function(
 
 window.document.getElementById("Invert").addEventListener("click", function(){
     document.getElementById("container-img").style.filter = "invert(100%)";
+});
+
+window.document.getElementById("Opacity").addEventListener("click", function(){
+    document.getElementById("container-img").style.filter = "opacity(30%)";
 });
 
 window.document.getElementById("Saturate").addEventListener("click", function(){
