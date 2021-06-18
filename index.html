@@ -17,6 +17,7 @@
 
        body{
            display: flex;
+           transition: .5s;
        }
        /*----------------Conteúdo--------------------*/
 
@@ -140,7 +141,7 @@
 /*----------------código que pega os id e aplica os efeitos--------------------*/
 
 window.document.getElementById("Blur").addEventListener("click", function(){
-    document.getElementById("container-img").style.filter = "contrast(200%) brightness(150%)";
+    document.getElementById("container-img").style.filter = "blur(5px)";
 
 });
 
