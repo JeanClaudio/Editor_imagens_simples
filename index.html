@@ -41,7 +41,7 @@
            height: 500px;
            background-color: #213A40;
            margin: auto;
-           background-image: url(imagens/bgk.jpg);
+           background-image: url(img/ed.jpg);
            background-size: cover;
        }
 
@@ -129,8 +129,6 @@
     <div id="container">
         <div id="box-img">
             <div id="container-img"></div>
-            <input id="modificador" class="modificador" type="range" min="1" max="100" step="any">
-            <input id="mod" class="mod" type="range" min="0.0" max="5" step="any">
         </div>
     </div>
 
@@ -138,26 +136,6 @@
 
 
 <script>
-var opa = document.getElementById("modificador").value;
-
-window.document.getElementById("modificador").addEventListener("click", function(){
-    opa = document.getElementById("modificador").value;
-    document.getElementById("container-img").style.filter = "opacity("+ opa +"%)";
-});
-
-window.document.getElementById("Opacity").addEventListener("click", function(){
-    document.getElementById("container-img").style.filter = "opacity("+ opa +"%)";
-    document.getElementById("modificador").classList.add("ativado");
-});
-
-
-
-var bri = document.getElementById("mod").value;
-
-window.document.getElementById("mod").addEventListener("click", function(){
-    bri = document.getElementById("mod").value;
-    document.getElementById("container-img").style.filter = "brightness("+ bri +")";
-});
 
 /*----------------código que pega os id e aplica os efeitos--------------------*/
 
@@ -212,12 +190,6 @@ var check = true;
         }    
 
 });
-
-
-
-
-
-
 
 </script>
 </html>
