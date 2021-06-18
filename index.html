@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <title>Editor de imagens</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            font-family:'Courier New', Courier, monospace
+        }
+
+       body{
+           display: flex;
+       }
+       /*----------------Conteúdo--------------------*/
+
+       #container{
+           width: 80%;
+           height: 100vh;
+           background-color: rgb(255, 255, 255);
+           background-image: url("https://images.unsplash.com/photo-1614850715649-1d0106293bd1?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80");
+           background-size: cover;
+       }
+
+       #box-img{
+        width: 550px;
+        height: 80vh;
+        background-color: darkgray;
+        margin: 2em auto;
+        padding-top: 1.5em;
+       }
+
+       #container-img{
+           width: 500px;
+           height: 500px;
+           background-color: #213A40;
+           margin: auto;
+           background-image: url(imagens/bgk.jpg);
+           background-size: cover;
+       }
+
+       /*----------------Menu--------------------*/
+
+       #container-menu{
+           width: 20%;
+           height: 100vh;
+           background-color: #145364;
+           transition: 0.5s;
+       }
+
+       h1{
+           color:#fe713c;
+           font-size: 2em;
+           margin: 2em auto;
+           text-align: center;
+       }
+
+       #esconder{
+           font-size: 2em;
+           position: fixed;
+           color: white;
+           top: 10px;
+           left: 10px;
+           cursor: pointer;
+           transition: 0.5s;
+       }
+
+       #menu-list-effect{
+           width: 90%;
+           color: white;
+           font-size: 2em;
+           margin: 2em auto;
+           text-align: center;
+       }
+
+       #menu-list-effect li{
+           display: block;
+           margin-top: 13px;
+           transition: 0.3s;
+       } 
+
+       #menu-list-effect li:hover{
+            cursor: pointer;
+            font-size: 1.2em;
+            background-color: #1d3136;
+            box-shadow: 2px 2px #fe713c;
+       }
+       .modificador{
+           display: none;
+           width: 200px;
+           height: 50px;
+       }
+
+       .ativado{
+           display: block;
+           background-color: darkorange;
+       }
+
+        
+    </style>
+</head>
+<body>
+    
+    <div id="container-menu">
+        <h1>Efeitos</h1>
+
+        <i id="esconder" class="fas fa-bars"></i>
+
+        <ul id="menu-list-effect">
+            <li id="Blur">Blur</li>
+            <li id="Brightness">Brightness</li>
+            <li id="Contrast">Contrast</li>
+            <li id="Drop-shadow">Drop-shadow</li>
+            <li id="Grayscale">Grayscale</li>
+            <li id="Hue-rotate">Hue-rotate</li>
+            <li id="Invert">Invert</li>
+            <li id="Opacity">Opacity</li>
+            <li id="Saturate">Saturate</li>
+            <li id="Sepia">Sepia</li>
+        </ul>
+    </div>
+
+    <div id="container">
+        <div id="box-img">
+            <div id="container-img"></div>
+            <input id="modificador" class="modificador" type="range" min="1" max="100" step="any">
+            <input id="mod" class="mod" type="range" min="0.0" max="5" step="any">
+        </div>
+    </div>
+
+</body>
+
+
+<script>
+var opa = document.getElementById("modificador").value;
+
+window.document.getElementById("modificador").addEventListener("click", function(){
+    opa = document.getElementById("modificador").value;
+    document.getElementById("container-img").style.filter = "opacity("+ opa +"%)";
+});
+
+window.document.getElementById("Opacity").addEventListener("click", function(){
+    document.getElementById("container-img").style.filter = "opacity("+ opa +"%)";
+    document.getElementById("modificador").classList.add("ativado");
+});
+
+
+
+var bri = document.getElementById("mod").value;
+
+window.document.getElementById("mod").addEventListener("click", function(){
+    bri = document.getElementById("mod").value;
+    document.getElementById("container-img").style.filter = "brightness("+ bri +")";
+});
+
+/*----------------código que pega os id e aplica os efeitos--------------------*/
+
+window.document.getElementById("Blur").addEventListener("click", function(){
+    document.getElementById("container-img").style.filter = "contrast(200%) brightness(150%)";
+
+});
+
+window.document.getElementById("Contrast").addEventListener("click", function(){
+    document.getElementById("container-img").style.filter = "contrast(180%)";
+});
+
+window.document.getElementById("Drop-shadow").addEventListener("click", function(){
+    document.getElementById("container-img").style.filter = "drop-shadow(8px 8px 10px green)";
+});
+
+window.document.getElementById("Grayscale").addEventListener("click", function(){
+    document.getElementById("container-img").style.filter = "grayscale(100%)";
+});
+
+window.document.getElementById("Hue-rotate").addEventListener("click", function(){
+    document.getElementById("container-img").style.filter = "hue-rotate(180deg)";
+});
+
+window.document.getElementById("Invert").addEventListener("click", function(){
+    document.getElementById("container-img").style.filter = "invert(100%)";
+});
+
+window.document.getElementById("Saturate").addEventListener("click", function(){
+    document.getElementById("container-img").style.filter = "saturate(7)";
+});
+
+window.document.getElementById("Sepia").addEventListener("click", function(){
+    document.getElementById("container-img").style.filter = "sepia(100%)";
+});
+/*----------------------------esconder menu-------------------------------------*/
+var check = true;
+
+    window.document.getElementById("esconder").addEventListener("click", function(){
+        if (check==true) {
+            document.getElementById("container-menu").style.position = "fixed";
+            document.getElementById("container-menu").style.left = "-20%";
+            document.getElementById("container").style.width = "100%";
+            document.getElementById("esconder").style.transform = "rotate(90deg)";
+            check =false;
+        } else {
+            document.getElementById("container-menu").style.position = "static";
+            document.getElementById("container").style.width = "80%";
+            document.getElementById("esconder").style.transform = "rotate(180deg)";
+            
+            check =true;
+        }    
+
+});
+
+
+
+
+
+
+
+</script>
+</html>
